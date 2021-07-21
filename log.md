@@ -1,6 +1,6 @@
 # 100 Days Of Code - Log
 
-### Day 1: July 2020, 2021
+### Day 1: July 20th, 2021
 
 **Today's Progress**: Set uo the repository, added (through github) gitignore, and license, updated readme and started the log
 
