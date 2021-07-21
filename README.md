@@ -14,4 +14,4 @@ by Magnus Carlsen, that today is [world chess day](https://www.un.org/en/observa
 * Write an interactive chess board that automatically records the moves
 * Corresponding GUI
 * Maybe rewrting it in a way that a chess engine can be mounted on it.
-* And probably most importantly: code for 100 days, starting JJuly, 20th 2021.
+* And probably most importantly: code for 100 days, starting July, 20th 2021.
