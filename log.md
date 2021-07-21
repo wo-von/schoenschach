@@ -6,6 +6,13 @@
 
 **Thoughts:** just having a peaceful first day
 
+### Day 2: July 21st, 2021:
+
+**Today's progress** started the objects for peices and board. Reviewd python obbjects from past courses (MITx 6001 and 6002). Added examples from these courses and also CS50's artificial intelligence course.
+
+**Thoughts** should be much faster and also not overthink everything so that i can get the initial version quickly. Also, the idea to make it work via ascii art is probably not very smart, since it does not make the GUI later simpler. I guess  i start right away with GUI, there is tkinter and pygame. Should decide which one to use
+
+**TODO** Decide on a GUI library, either tkinter or pygame or maybe sth else. Review code of robot visualizer and minesweeper quickly.
 <!-- **Link to work:** [Calculator App](http://www.example.com)
 
 ### Day 0: February 30, 2016 (Example 2)
