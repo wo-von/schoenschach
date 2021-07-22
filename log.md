@@ -13,6 +13,12 @@
 **Thoughts** should be much faster and also not overthink everything so that i can get the initial version quickly. Also, the idea to make it work via ascii art is probably not very smart, since it does not make the GUI later simpler. I guess  i start right away with GUI, there is tkinter and pygame. Should decide which one to use
 
 **TODO** Decide on a GUI library, either tkinter or pygame or maybe sth else. Review code of robot visualizer and minesweeper quickly.
+
+### Day 3: July 22nd, 2021:
+
+**Today's progress** Nothing! Started very late and was already tired. This should not happen anymore. (just started the venv, but no requirements file, since there is none!)
+
+**Thoughts** Should start earlier
 <!-- **Link to work:** [Calculator App](http://www.example.com)
 
 ### Day 0: February 30, 2016 (Example 2)
