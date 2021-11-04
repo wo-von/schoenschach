@@ -2,17 +2,29 @@
 
 ### Day 1: July 20th, 2021
 
-**Today's Progress**: Set uo the repository, added (through github) gitignore, and license, updated readme and started the log
+**Today's Progress**: Set up the repository, added (through github) gitignore, and license, updated readme and started the log
 
 **Thoughts:** just having a peaceful first day
 
 ### Day 2: July 21st, 2021:
 
-**Today's progress** started the objects for peices and board. Reviewd python obbjects from past courses (MITx 6001 and 6002). Added examples from these courses and also CS50's artificial intelligence course.
+**Today's progress** 
 
-**Thoughts** should be much faster and also not overthink everything so that i can get the initial version quickly. Also, the idea to make it work via ascii art is probably not very smart, since it does not make the GUI later simpler. I guess  i start right away with GUI, there is tkinter and pygame. Should decide which one to use
+started the objects for peices and board. Reviewd python obbjects from past courses (MITx 6001 and 6002). Added examples from these courses and also CS50's artificial intelligence course.
 
-**TODO** Decide on a GUI library, either tkinter or pygame or maybe sth else. Review code of robot visualizer and minesweeper quickly.
+**Thoughts** 
+
+should be much faster and also not overthink everything so that i can get the initial version quickly. Also, the idea to make it work via ascii art is probably not very smart, since it does not make the GUI later simpler. I guess  i start right away with GUI, there is tkinter and pygame. Should decide which one to use
+
+**TODO** 
+
+ٰDecide on a GUI library, either tkinter or pygame or maybe sth else. Review code of robot visualizer and minesweeper quickly.
+
+**Link to work**
+
+[Project page of the minesweeper project of CS50 artificial intelligence](https://cs50.harvard.edu/ai/2020/projects/1/minesweeper/)
+
+[Problem set 3 of the MIT's 6.002 is what is being considered here](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0002-introduction-to-computational-thinking-and-data-science-fall-2016/assignments/ٰ)
 <!-- **Link to work:** [Calculator App](http://www.example.com)
 
 ### Day 0: February 30, 2016 (Example 2)
