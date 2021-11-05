@@ -27,4 +27,13 @@ I started this in July and then quit immediately, which is not the point of 100 
 **TODO:** 
 Find a better PNG image file for the board, since it needs to have boundaries so that I can print the coordinates (A..H and 1..8). it might need to later be refactored into a class so that multiple instances of it can be run, since pygame supports only one screen
 
+### Day 2: 5th Nov 2021
+**Progress:** 
+Did not work for a full hour, but found better pieces and boards and need to set them up for now. putting image on top of each other also works with no problem
+**TODO:**
+- seems like I should keep calculating the board size, the paddings, etc. lets find out if pygame can scale automatically nd if not write tests so that the board size etc. has the desired dimensions
+- make list of assets. for now: type of chess boards: bauhaus, netflix
+- Download better quality chess pieces
+- Tomorrow: finish the while asset with board and pieces and make scaling work.
+
 
