@@ -37,3 +37,11 @@ Did not work for a full hour, but found better pieces and boards and need to set
 - Tomorrow: finish the while asset with board and pieces and make scaling work.
 
 
+### Day 3: 8th Nov 2021
+**Progress:**
+This is not how it should be, you lose a challenge if you do not code for even one day and now I have not code for 2 days, but I am going to cut myself some slack, my laptop at home was not working properly and it was a busy weekend familywise, I also had birthday!
+Anyway, today I impelemted a logical representation of a board, still very much incomplete but I think it is nice that I have started to think for myself instead of following the tutorial. Also started using pieces through a class, which is also the correct direction.
+**TODO:**
+- kepp doing the tutorial, you should know how grapfics works before coupling it to a loogical representation.
+- Also represent the board in a class.
+- maybe like CS50, use a runner which imports the mosules, that should be nicer

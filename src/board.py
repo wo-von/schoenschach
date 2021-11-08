@@ -1,8 +1,20 @@
 #!/usr/bin/python3
 
+# external libraries
 import pygame
 import sys
 import os
+# local libraries
+from pieces import Piece
+
+class Board(object):
+    '''
+    Logical representation of a board
+    '''
+    def __init__(self):
+        self.board = [["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"], ["wp", "wp","wp","wp","wp","wp","wp","wp"], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"], ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"]]
+    def update(self):
+        return self.board
 
 def main():
     
@@ -20,16 +32,16 @@ def main():
     board = pygame.image.load("../assets/boards/Chessboard480.svg.png")
     
     # resize the board to fit to the screen
-    board = pygame.transform.scale(board, (height - 2 * padding, width - 2* padding))
+    board = pygame.transform.scale(board, (height, width))
     
     screen.fill(GRAY)
     screen.blit(board, (padding, padding))
     # Update the display
     
     # Draw the pieces
-    bishopBlack = pygame.image.load("../assets/pieces/800px-Chess_kdt45.svg.png")
-    bishopBlack = pygame.transform.scale(bishopBlack, (50, 50))
-    screen.blit(bishopBlack, (180, 220))
+    bishop = Piece(250, 50, "../assets/pieces/Chess_bdt60.png")
+    bishop.image = pygame.transform.scale(bishop.image, (80, 80))
+    screen.blit(bishop.image, (bishop.x, bishop.y))
     pygame.display.flip()
     
     while True:
