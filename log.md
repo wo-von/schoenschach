@@ -49,6 +49,8 @@ Anyway, today I impelemted a logical representation of a board, still very much 
 ### Day4: 9th Nov. 2021:
 **Progress:**
 Implemented a very simple and inefficient animation, which might for now work. but soent a lot of time browsing different tutorials. This is what I do, also in my job and specially at the beginning when things are unclear, trying to learn and follow the steps of other prople, and getting lost in learning material. I should avoid this and impelemt the project one step at a time.
+use a dict for the paths of the png files of the chess pieces, I have a better picture of how to move forward after the disappoiting first half of day 4.
+used black to format the files, but 1 file at a time
 **TODO:**
 Just write classes for different ppieces and create a generic board class and draw it. 
 afterwards:
