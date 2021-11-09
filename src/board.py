@@ -4,6 +4,7 @@
 import pygame
 import sys
 import os
+import time
 # local libraries
 from pieces import Piece
 
@@ -20,32 +21,38 @@ def main():
     
     BLACK = (0, 0, 0)
     GRAY = (180, 180, 180)
-    screenSize = height, width = 800, 800
-    padding = 30
+    screenSize = height, width = 900, 900 
+    padding = 50
     # Start all modules
     pygame.init()
-    
+    # Call the screen Schönschach 
     pygame.display.set_caption("Schönschach") # make icon also working
-    
+    # Draw s 1000 * 1000 screen 
     screen = pygame.display.set_mode(screenSize)
-    # simple_board.png is 1000*1000
     board = pygame.image.load("../assets/boards/Chessboard480.svg.png")
     
-    # resize the board to fit to the screen
-    board = pygame.transform.scale(board, (height, width))
-    
+    # Load the board image and transform its scale with the corresponding padding
+    # now: 800 * 800 for simplicity 
+    board = pygame.transform.scale(board, (height - 2 * padding, width - 2 * padding))
     screen.fill(GRAY)
     screen.blit(board, (padding, padding))
-    # Update the display
-    
+       
     # Draw the pieces
-    bishop = Piece(250, 50, "../assets/pieces/Chess_bdt60.png")
-    bishop.image = pygame.transform.scale(bishop.image, (80, 80))
-    screen.blit(bishop.image, (bishop.x, bishop.y))
+    bishopBlack = Piece(250, 50, "../assets/pieces/2048px-BishopB.svg.png")
+    bishopBlack.image = pygame.transform.scale(bishopBlack.image, (100, 100))
+    screen.blit(bishopBlack.image, (bishopBlack.x, bishopBlack.y))
     pygame.display.flip()
-    
+    x_dest = 450
+    y_dest = 250
+    step = 20
+    while bishopBlack.x < x_dest and bishopBlack.y < y_dest:
+        time.sleep(0.05)
+        bishopBlack.x += step 
+        bishopBlack.y += step
+        screen.blit(board, (padding, padding))
+        screen.blit(bishopBlack.image, (bishopBlack.x, bishopBlack.y))
+        pygame.display.flip()
     while True:
-        import time
         time.sleep(0.1)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
