@@ -7,7 +7,7 @@ import os
 import time
 
 # local libraries
-from pieces import Piece
+from pieces import *
 
 
 class Board(object):
@@ -50,21 +50,23 @@ def main():
     board = pygame.transform.scale(board, (height - 2 * padding, width - 2 * padding))
     screen.fill(GRAY)
     screen.blit(board, (padding, padding))
-
+    time.sleep(10)
     # Draw the pieces
-    bishopBlack = Piece(250, 50, "../assets/pieces/2048px-BishopB.svg.png")
-    bishopBlack.image = pygame.transform.scale(bishopBlack.image, (100, 100))
-    screen.blit(bishopBlack.image, (bishopBlack.x, bishopBlack.y))
+    # bishopBlack = Piece(250, 50, "../assets/pieces/2048px-BishopB.svg.png")
+    blackBishop.image = pygame.transform.scale(blackBishop.image, (100, 100))
+    blackBishop.x = 250
+    blackBishop.y = 50
+    screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
     pygame.display.flip()
     x_dest = 450
     y_dest = 250
     step = 20
-    while bishopBlack.x < x_dest and bishopBlack.y < y_dest:
+    while blackBishop.x < x_dest and blackBishop.y < y_dest:
         time.sleep(0.05)
-        bishopBlack.x += step
-        bishopBlack.y += step
+        blackBishop.x += step
+        blackBishop.y += step
         screen.blit(board, (padding, padding))
-        screen.blit(bishopBlack.image, (bishopBlack.x, bishopBlack.y))
+        screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
         pygame.display.flip()
     while True:
         time.sleep(0.1)
