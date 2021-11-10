@@ -50,12 +50,12 @@ def main():
     board = pygame.transform.scale(board, (height - 2 * padding, width - 2 * padding))
     screen.fill(GRAY)
     screen.blit(board, (padding, padding))
-    time.sleep(10)
+
     # Draw the pieces
-    # bishopBlack = Piece(250, 50, "../assets/pieces/2048px-BishopB.svg.png")
-    blackBishop.image = pygame.transform.scale(blackBishop.image, (100, 100))
-    blackBishop.x = 250
-    blackBishop.y = 50
+
+    # blackBishop.image = pygame.transform.scale(blackBishop.image, (100, 100))
+    # blackBishop.x = 250
+    # blackBishop.y = 50
     screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
     pygame.display.flip()
     x_dest = 450
