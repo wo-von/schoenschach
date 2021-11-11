@@ -7,7 +7,7 @@ import os
 import time
 
 # local libraries
-from pieces import *
+import pieces
 
 
 class Board(object):
@@ -15,7 +15,10 @@ class Board(object):
     Logical representation of a board
     """
 
-    def __init__(self):
+    def __init__(self, screenSize=(900, 900), padding=50, logicalsize=(8, 8)):
+        self.screenSize = self.height, self.width = screenSize
+        self.logicalsize = self.logical_height, self.logical_width = logicalsize
+        self.padding = padding
         self.board = [
             ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
             ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
@@ -30,11 +33,27 @@ class Board(object):
     def update(self):
         return self.board
 
+    def get_coordinates(self):
+        return [
+            (x, y)
+            for y in range(
+                self.padding,
+                self.height - self.padding,
+                int((self.height - 2 * self.padding) / self.logical_height),
+            )
+            for x in range(
+                self.padding,
+                self.width - self.padding,
+                int((self.width - 2 * self.padding) / self.logical_width),
+            )
+        ]
+
 
 def main():
 
     BLACK = (0, 0, 0)
     GRAY = (180, 180, 180)
+    board_logical_size = logical_height, logical_width = 8, 8
     screenSize = height, width = 900, 900
     padding = 50
     # Start all modules
@@ -53,21 +72,20 @@ def main():
 
     # Draw the pieces
 
-    # blackBishop.image = pygame.transform.scale(blackBishop.image, (100, 100))
-    # blackBishop.x = 250
-    # blackBishop.y = 50
-    screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
+    test_bishop = pieces.BBishop(250, 50)
+    test_bishop.image = pygame.transform.scale(test_bishop.image, (100, 100))
+    screen.blit(test_bishop.image, test_bishop.get_xy())
     pygame.display.flip()
-    x_dest = 450
-    y_dest = 250
-    step = 20
-    while blackBishop.x < x_dest and blackBishop.y < y_dest:
-        time.sleep(0.05)
-        blackBishop.x += step
-        blackBishop.y += step
-        screen.blit(board, (padding, padding))
-        screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
-        pygame.display.flip()
+    # x_dest = 450
+    # y_dest = 250
+    # step = 20
+    # while blackBishop.x < x_dest and blackBishop.y < y_dest:
+    #     time.sleep(0.05)
+    #     blackBishop.x += step
+    #     blackBishop.y += step
+    #     screen.blit(board, (padding, padding))
+    #     screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
+    #     pygame.display.flip()
     while True:
         time.sleep(0.1)
         for event in pygame.event.get():
