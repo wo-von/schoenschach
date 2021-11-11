@@ -1,25 +1,24 @@
 #!/usr/bin/python3
 
 import pygame
-from enum import Enum
 
 Themes = ["normal"]
 current_theme = Themes[0]
 
 symbolsPath = {
     "normal": {
-        "white_pawn": "../assets/pieces/2048px-PawnW.svg.png",
-        "black_pawn": "../assets/pieces/2048px-PawnB.svg.png",
-        "white_knight": "../assets/pieces/2048px-KnightW.svg.png",
-        "black_knight": "../assets/pieces/2048px-KNightB.svg.png",
-        "white_bishop": "../assets/pieces/2048px-BishopW.svg.png",
-        "black_bishop": "../assets/pieces/2048px-BishopB.svg.png",
-        "white_rook": "../assets/pieces/2048px-RookW.svg.png",
-        "black_rook": "../assets/pieces/2048px-RookB.svg.png",
-        "white_queen": "../assets/pieces/2048px-QueenW.svg.png",
-        "black_queen": "../assets/pieces/2048px-QueenB.svg.png",
-        "black_king": "../assets/pieces/2048px-KingB.svg.png",
-        "black_king": "../assets/pieces/2048px-KingW.svg.png",
+        "wr": "../assets/pieces/2048px-RookW.svg.png",
+        "br": "../assets/pieces/2048px-RookB.svg.png",
+        "wn": "../assets/pieces/2048px-KnightW.svg.png",
+        "bn": "../assets/pieces/2048px-KNightB.svg.png",
+        "wb": "../assets/pieces/2048px-BishopW.svg.png",
+        "bb": "../assets/pieces/2048px-BishopB.svg.png",
+        "wq": "../assets/pieces/2048px-QueenW.svg.png",
+        "bq": "../assets/pieces/2048px-QueenB.svg.png",
+        "bk": "../assets/pieces/2048px-KingB.svg.png",
+        "bk": "../assets/pieces/2048px-KingW.svg.png",
+        "wp": "../assets/pieces/2048px-PawnW.svg.png",
+        "bp": "../assets/pieces/2048px-PawnB.svg.png",
     }
 }
 
