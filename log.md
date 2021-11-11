@@ -55,3 +55,15 @@ used black to format the files, but 1 file at a time
 Just write classes for different ppieces and create a generic board class and draw it. 
 afterwards:
 - either keyboard or mouse: show where each piece can go.
+
+### Day5: 10th Nov. 2021:
+**Progress:**
+worked on classes of pieces, but forgot to write the log, see Day6
+**TODO:**
+see Day6
+
+### Day6: 11th Nov. 2021:
+**Progress:**
+Finished a draft of the classes for pieces which seems to be working for now, I am goning to stay with unless I realize it could get a lot better. Made the board also compatible with this version and it is working now.
+**TODO:**
+should work on the board, make coordinates and so correct, and draw a board based on the dict (or whatever data structure) that hold the board state.
