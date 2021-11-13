@@ -67,3 +67,7 @@ see Day6
 Finished a draft of the classes for pieces which seems to be working for now, I am goning to stay with unless I realize it could get a lot better. Made the board also compatible with this version and it is working now.
 **TODO:**
 should work on the board, make coordinates and so correct, and draw a board based on the dict (or whatever data structure) that hold the board state.
+
+### Day7: 12th Nov. 2021:
+**Progress:** Not much, started very late and was distracted
+**TODO:** Evetything that should have been done today

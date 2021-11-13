@@ -9,27 +9,33 @@ import time
 # local libraries
 import pieces
 
+gameTypes = {"standard"}
+
+standardBoard = [
+    ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
+    ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
+    ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
+]
+
 
 class Board(object):
     """
     Logical representation of a board
     """
 
-    def __init__(self, screenSize=(900, 900), padding=50, logicalsize=(8, 8)):
+    def __init__(
+        self, screenSize=(900, 900), padding=50, logicalsize=(8, 8), gameType="standard"
+    ):
         self.screenSize = self.height, self.width = screenSize
         self.logicalsize = self.logical_height, self.logical_width = logicalsize
         self.padding = padding
-        self.board = [
-            ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
-            ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
-            ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
-        ]
-
+        self.logical_board = standardBoard if gameType == "standard" else None
+        self.board = self.get_board()
     def update(self):
         return self.board
 
@@ -47,7 +53,11 @@ class Board(object):
                 int((self.width - 2 * self.padding) / self.logical_width),
             )
         ]
-
+    def get_board(self):
+        '''
+        builds up a board with piece objects from pieces.py based on the logical_board
+        '''
+        
 
 def main():
 
