@@ -71,3 +71,11 @@ should work on the board, make coordinates and so correct, and draw a board base
 ### Day7: 12th Nov. 2021:
 **Progress:** Not much, started very late and was distracted
 **TODO:** Evetything that should have been done today
+
+### Day8: 15th Nov. 2021:
+**Note:**
+very little to no progress on 13th and 14th. so I have not counted them towards days
+**Progress:**
+use a Piece object that holds the piece and coordinated in the board list. Maybe the x y for the pieces is unnecessary. generally the data structures need a lot of work, maybe i shold use a dictioary instead. just wanted to rush towards drawing the board, but it does not work
+**TODO:**
+debug the current code and see why it does not work. Think on how to impelment the whole thing
