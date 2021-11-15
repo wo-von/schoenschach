@@ -12,14 +12,14 @@ import pieces
 gameTypes = {"standard"}
 
 standardBoard = [
-    ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
-    ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
     ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
+    ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
+    ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
 ]
 
 
@@ -53,19 +53,22 @@ class Board(object):
         return self.board
 
     def get_coordinates(self):
-        return [
-            (x, y)
-            for y in range(
+        
+        self.coordinates = list()
+        for y in range(
                 self.padding,
                 self.height - self.padding,
                 int((self.height - 2 * self.padding) / self.logical_height),
-            )
+            ):
+            row = list()
             for x in range(
                 self.padding,
                 self.width - self.padding,
                 int((self.width - 2 * self.padding) / self.logical_width),
-            )
-        ]
+            ):
+                row.append((x, y))
+            self.coordinates.append(row)
+        return self.coordinates
 
     def get_board(self):
         """
@@ -147,7 +150,7 @@ def main():
     board = pygame.transform.scale(board, (height - 2 * padding, width - 2 * padding))
     screen.fill(GRAY)
     screen.blit(board, (padding, padding))
-
+    pygame.display.flip()
     # Draw the pieces
     logical_size = rows, columns = 8, 8
     game = Board(logicalsize=logical_size)
@@ -162,21 +165,8 @@ def main():
 
             screen.blit(thisPiece.image, co[i][j])
 
-    #    test_bishop = pieces.BBishop(250, 50)
-
-    #    test_bishop.image = pygame.transform.scale(test_bishop.image, (100, 100))
-    #   screen.blit(test_bishop.image, test_bishop.get_xy())
     pygame.display.flip()
-    # x_dest = 450
-    # y_dest = 250
-    # step = 20
-    # while blackBishop.x < x_dest and blackBishop.y < y_dest:
-    #     time.sleep(0.05)
-    #     blackBishop.x += step
-    #     blackBishop.y += step
-    #     screen.blit(board, (padding, padding))
-    #     screen.blit(blackBishop.image, (blackBishop.x, blackBishop.y))
-    #     pygame.display.flip()
+    
     while True:
         time.sleep(0.1)
         for event in pygame.event.get():

@@ -15,8 +15,8 @@ symbolsPath = {
         "bb": "../assets/pieces/2048px-BishopB.svg.png",
         "wq": "../assets/pieces/2048px-QueenW.svg.png",
         "bq": "../assets/pieces/2048px-QueenB.svg.png",
-        "wk": "../assets/pieces/2048px-KingB.svg.png",
-        "bk": "../assets/pieces/2048px-KingW.svg.png",
+        "wk": "../assets/pieces/2048px-KingW.svg.png",
+        "bk": "../assets/pieces/2048px-KingB.svg.png",
         "wp": "../assets/pieces/2048px-PawnW.svg.png",
         "bp": "../assets/pieces/2048px-PawnB.svg.png",
     }
