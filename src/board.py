@@ -23,6 +23,18 @@ standardBoard = [
 ]
 
 
+class Square(object):
+    """
+    What each square entails: i, j,  (coordinates), standard coordinate (a-h and 1-8 for standard voard), and piece
+    Null for empty squares
+    """
+
+    def __init__(self, i, j, piece):
+        self.i = i
+        self.j = j
+        self.piece = piece
+
+
 class Board(object):
     """
     Logical representation of a board
@@ -36,6 +48,7 @@ class Board(object):
         self.padding = padding
         self.logical_board = standardBoard if gameType == "standard" else None
         self.board = self.get_board()
+
     def update(self):
         return self.board
 
@@ -53,11 +66,66 @@ class Board(object):
                 int((self.width - 2 * self.padding) / self.logical_width),
             )
         ]
+
     def get_board(self):
-        '''
+        """
         builds up a board with piece objects from pieces.py based on the logical_board
-        '''
-        
+        """
+        temp = list()  # empty list with correct rows and columns to be filled
+        for _ in range(self.logical_height):
+            temptemp = list()
+            for _ in range(self.logical_width):
+                temptemp.append([])
+            temp.append(temptemp)
+
+        for n, row in enumerate(self.logical_board):
+            for m, column in enumerate(row):
+                if self.logical_board[n][m] == "wp":
+                    temp[n][m] = Square(m, n, pieces.WPawn(m, n))
+
+                elif self.logical_board[n][m] == "wr":
+                    temp[n][m] = Square(m, n, pieces.WRook(m, n))
+
+                elif self.logical_board[n][m] == "wn":
+                    temp[n][m] = Square(m, n, pieces.WKnight(m, n))
+
+                elif self.logical_board[n][m] == "wb":
+                    temp[n][m] = Square(m, n, pieces.WBishop(m, n))
+
+                elif self.logical_board[n][m] == "wq":
+                    temp[n][m] = Square(m, n, pieces.WQueen(m, n))
+
+                elif self.logical_board[n][m] == "wk":
+                    temp[n][m] = Square(m, n, pieces.WKing(m, n))
+
+                elif self.logical_board[n][m] == "bp":
+                    temp[n][m] = Square(m, n, pieces.BPawn(m, n))
+
+                elif self.logical_board[n][m] == "br":
+                    temp[n][m] = Square(m, n, pieces.BRook(m, n))
+
+                elif self.logical_board[n][m] == "bn":
+                    temp[n][m] = Square(m, n, pieces.BKnight(m, n))
+
+                elif self.logical_board[n][m] == "bb":
+                    temp[n][m] = Square(m, n, pieces.BBishop(m, n))
+
+                elif self.logical_board[n][m] == "bq":
+                    temp[n][m] = Square(m, n, pieces.BQueen(m, n))
+
+                elif self.logical_board[n][m] == "bk":
+                    temp[n][m] = Square(m, n, pieces.BKing(m, n))
+                elif self.logical_board[n][m] == 0:
+                    temp[n][m] = Square(m, n, None)
+                else:
+                    raise ValueError(
+                        "self.logical_board[m][n] does not have a valid piece:",
+                        self.logical_board[n][m],
+                        n,
+                        m,
+                    )
+        return temp
+
 
 def main():
 
@@ -70,7 +138,7 @@ def main():
     pygame.init()
     # Call the screen Schönschach
     pygame.display.set_caption("Schönschach")  # make icon also working
-    # Draw s 1000 * 1000 screen
+    # Draw a 900 * 900 screen
     screen = pygame.display.set_mode(screenSize)
     board = pygame.image.load("../assets/boards/Chessboard480.svg.png")
 
@@ -81,10 +149,23 @@ def main():
     screen.blit(board, (padding, padding))
 
     # Draw the pieces
+    logical_size = rows, columns = 8, 8
+    game = Board(logicalsize=logical_size)
+    toDraw = game.get_board()
+    co = game.get_coordinates()
+    for i in range(rows):
+        for j in range(columns):
+            thisPiece = toDraw[i][j].piece
+            if thisPiece == None:
+                continue
+            thisPiece.image = pygame.transform.scale(thisPiece.image, (100, 100))
 
-    test_bishop = pieces.BBishop(250, 50)
-    test_bishop.image = pygame.transform.scale(test_bishop.image, (100, 100))
-    screen.blit(test_bishop.image, test_bishop.get_xy())
+            screen.blit(thisPiece.image, co[i][j])
+
+    #    test_bishop = pieces.BBishop(250, 50)
+
+    #    test_bishop.image = pygame.transform.scale(test_bishop.image, (100, 100))
+    #   screen.blit(test_bishop.image, test_bishop.get_xy())
     pygame.display.flip()
     # x_dest = 450
     # y_dest = 250
