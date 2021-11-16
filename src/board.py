@@ -138,8 +138,8 @@ class Board(object):
         '''
         draws and empty board, over which the game is played  
         '''
-        pygame.display.set_caption(self.caption)
         self.display = pygame.display.set_mode(self.screenSize)
+        pygame.display.set_caption(self.caption)
         self.board = pygame.transform.scale(self.board, (self.height - 2 * self.padding, self.width - 2 * self.padding))
         self.display.fill((180, 180, 180))
         self.display.blit(self.board, (self.padding, self.padding))
