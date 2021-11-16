@@ -68,14 +68,20 @@ Finished a draft of the classes for pieces which seems to be working for now, I 
 **TODO:**
 should work on the board, make coordinates and so correct, and draw a board based on the dict (or whatever data structure) that hold the board state.
 
-### Day7: 12th Nov. 2021:
+### Day7/0: 12th Nov. 2021:
 **Progress:** Not much, started very late and was distracted
 **TODO:** Evetything that should have been done today
 
-### Day8: 15th Nov. 2021:
+### Day7/1: 15th Nov. 2021:
 **Note:**
 very little to no progress on 13th and 14th. so I have not counted them towards days
 **Progress:**
 use a Piece object that holds the piece and coordinated in the board list. Maybe the x y for the pieces is unnecessary. generally the data structures need a lot of work, maybe i shold use a dictioary instead. just wanted to rush towards drawing the board, but it does not work
 **TODO:**
 debug the current code and see why it does not work. Think on how to impelment the whole thing
+
+### Day 8: 16th Nov. 2021:
+**Progress:**
+Moved the drawing part of the board into the class, works. But I think the code is getting a bit compplicted and I am losing track of the big picture. For that I need to refresh my knowledge of pygame. Also, keep things simple, it is nice that I am trying to do things via paramaeters so that they are scalable later, but the fact is that I have no idea how it is going to be, maybe pygame takes care of scaling itself, because now I am very concerned with scaling the board and translating everythign into scale
+**TODO:**
+Read a pygame tutorial to get an idea how things are going to be. for now I have [this](https://coderslegacy.com/python/python-pygame-tutorial/) and [this](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/pygame-tutorial-movement/). Also read about resizing and scaling since that is bothering you so much. Also think about the data structures, the current one is working, but is getting complicated
