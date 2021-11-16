@@ -38,16 +38,22 @@ class Square(object):
 class Board(object):
     """
     Logical representation of a board
+    empty_board: string of the path to the empty board file
+    board: pygame loaded image of the empty_board
     """
 
     def __init__(
-        self, screenSize=(900, 900), padding=50, logicalsize=(8, 8), gameType="standard"
+        self, screenSize=(900, 900), padding=50, logicalsize=(8, 8), gameType="standard", empty_board = "../assets/boards/Chessboard480.svg.png", caption="Schönschach"
     ):
         self.screenSize = self.height, self.width = screenSize
         self.logicalsize = self.logical_height, self.logical_width = logicalsize
         self.padding = padding
         self.logical_board = standardBoard if gameType == "standard" else None
-        self.board = self.get_board()
+        self.empty_board = empty_board
+        self.caption = caption
+        self.board = pygame.image.load(self.empty_board)
+        self.display = None
+        self.screen = None
 
     def update(self):
         return self.board
@@ -128,7 +134,16 @@ class Board(object):
                         m,
                     )
         return temp
-
+    def draw_empty_board(self):
+        '''
+        draws and empty board, over which the game is played  
+        '''
+        pygame.display.set_caption(self.caption)
+        self.display = pygame.display.set_mode(self.screenSize)
+        self.board = pygame.transform.scale(self.board, (self.height - 2 * self.padding, self.width - 2 * self.padding))
+        self.display.fill((180, 180, 180))
+        self.display.blit(self.board, (self.padding, self.padding))
+        pygame.display.flip()
 
 def main():
 
