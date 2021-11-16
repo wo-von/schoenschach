@@ -53,13 +53,13 @@ class Board(object):
         return self.board
 
     def get_coordinates(self):
-        
+
         self.coordinates = list()
         for y in range(
-                self.padding,
-                self.height - self.padding,
-                int((self.height - 2 * self.padding) / self.logical_height),
-            ):
+            self.padding,
+            self.height - self.padding,
+            int((self.height - 2 * self.padding) / self.logical_height),
+        ):
             row = list()
             for x in range(
                 self.padding,
@@ -166,7 +166,7 @@ def main():
             screen.blit(thisPiece.image, co[i][j])
 
     pygame.display.flip()
-    
+
     while True:
         time.sleep(0.1)
         for event in pygame.event.get():
