@@ -85,3 +85,9 @@ debug the current code and see why it does not work. Think on how to impelment t
 Moved the drawing part of the board into the class, works. But I think the code is getting a bit compplicted and I am losing track of the big picture. For that I need to refresh my knowledge of pygame. Also, keep things simple, it is nice that I am trying to do things via paramaeters so that they are scalable later, but the fact is that I have no idea how it is going to be, maybe pygame takes care of scaling itself, because now I am very concerned with scaling the board and translating everythign into scale
 **TODO:**
 Read a pygame tutorial to get an idea how things are going to be. for now I have [this](https://coderslegacy.com/python/python-pygame-tutorial/) and [this](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/pygame-tutorial-movement/). Also read about resizing and scaling since that is bothering you so much. Also think about the data structures, the current one is working, but is getting complicated
+
+### Day9:16th Nov. 2021##
+**Progress:**
+No coding today, was literature review day because of reasons that was said yesterday. Read till part 13 of [this](https://www.patternsgameprog.com/series/discover-python-and-patterns/). Should have given it a rest after some time,, since i wanted to keep reading, but was distracted and kept browsing around. But is a very good one and is alreay showing me how to proceed
+**TODO:**
+keep reading the above mentioned tutorial, maybe start taking notes since it is getting a bit complicated
