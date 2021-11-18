@@ -180,15 +180,5 @@ def main():
 
             screen.blit(thisPiece.image, co[i][j])
 
-    pygame.display.flip()
-
-    while True:
-        time.sleep(0.1)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                # pygame.quit() alone does not work
-                pygame.display.quit()
-
-
-if __name__ == "__main__":
-    main()
+    # ToDo: seperate this into another method
+    # pygame.display.flip()

@@ -91,3 +91,10 @@ Read a pygame tutorial to get an idea how things are going to be. for now I have
 No coding today, was literature review day because of reasons that was said yesterday. Read till part 13 of [this](https://www.patternsgameprog.com/series/discover-python-and-patterns/). Should have given it a rest after some time,, since i wanted to keep reading, but was distracted and kept browsing around. But is a very good one and is alreay showing me how to proceed
 **TODO:**
 keep reading the above mentioned tutorial, maybe start taking notes since it is getting a bit complicated
+
+### Day10:17th Nov. 2021##
+**Progress:**
+Started seperating differen functionalities, and run the whole game through an object, which should be nice later if different instances are to run. Was generally very distracted, so nothing important was done
+**TODO:**
+impelemnt the keyboard interaction and maybe highlight the square you are on.
+

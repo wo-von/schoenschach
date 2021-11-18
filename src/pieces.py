@@ -5,6 +5,7 @@ import pygame
 Themes = ["normal"]
 current_theme = Themes[0]
 
+# ToDo: use os.path.join or sth nicer here
 symbolsPath = {
     "normal": {
         "wr": "../assets/pieces/2048px-RookW.svg.png",
