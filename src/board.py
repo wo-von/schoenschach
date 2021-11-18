@@ -43,7 +43,13 @@ class Board(object):
     """
 
     def __init__(
-        self, screenSize=(900, 900), padding=50, logicalsize=(8, 8), gameType="standard", empty_board = "../assets/boards/Chessboard480.svg.png", caption="Schönschach"
+        self,
+        screenSize=(900, 900),
+        padding=50,
+        logicalsize=(8, 8),
+        gameType="standard",
+        empty_board="../assets/boards/Chessboard480.svg.png",
+        caption="Schönschach",
     ):
         self.screenSize = self.height, self.width = screenSize
         self.logicalsize = self.logical_height, self.logical_width = logicalsize
@@ -134,16 +140,20 @@ class Board(object):
                         m,
                     )
         return temp
+
     def draw_empty_board(self):
-        '''
-        draws and empty board, over which the game is played  
-        '''
+        """
+        draws and empty board, over which the game is played
+        """
         self.display = pygame.display.set_mode(self.screenSize)
         pygame.display.set_caption(self.caption)
-        self.board = pygame.transform.scale(self.board, (self.height - 2 * self.padding, self.width - 2 * self.padding))
+        self.board = pygame.transform.scale(
+            self.board, (self.height - 2 * self.padding, self.width - 2 * self.padding)
+        )
         self.display.fill((180, 180, 180))
         self.display.blit(self.board, (self.padding, self.padding))
         pygame.display.flip()
+
 
 def main():
 
