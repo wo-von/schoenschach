@@ -86,15 +86,23 @@ Moved the drawing part of the board into the class, works. But I think the code 
 **TODO:**
 Read a pygame tutorial to get an idea how things are going to be. for now I have [this](https://coderslegacy.com/python/python-pygame-tutorial/) and [this](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/pygame-tutorial-movement/). Also read about resizing and scaling since that is bothering you so much. Also think about the data structures, the current one is working, but is getting complicated
 
-### Day9:16th Nov. 2021##
+### Day9:16th Nov. 2021:
 **Progress:**
 No coding today, was literature review day because of reasons that was said yesterday. Read till part 13 of [this](https://www.patternsgameprog.com/series/discover-python-and-patterns/). Should have given it a rest after some time,, since i wanted to keep reading, but was distracted and kept browsing around. But is a very good one and is alreay showing me how to proceed
 **TODO:**
 keep reading the above mentioned tutorial, maybe start taking notes since it is getting a bit complicated
 
-### Day10:17th Nov. 2021##
+### Day10:17th Nov. 2021:
 **Progress:**
 Started seperating differen functionalities, and run the whole game through an object, which should be nice later if different instances are to run. Was generally very distracted, so nothing important was done
 **TODO:**
 impelemnt the keyboard interaction and maybe highlight the square you are on.
 
+### Day11: 23 Nov. 2021:
+**Progress:**
+- Add the process input method of the Game object
+- The timeline of the 1000 days has been messed up, I am going to count from here (12- 15 are both day 7 and there are 16th Nov for days 8 and 9, the problem is inconsistency, but hope to  stay consistent from here on)
+**TODO:**
+- Make the game ruubale in the current form
+- implement selected square
+- impelement legal moves
