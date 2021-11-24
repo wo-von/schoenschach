@@ -27,6 +27,9 @@ class Game(object):
         self.running = True
         self.selected = False  # if a square has been picked by the user
         self.pos = [1, 5]  # where the selected square is, by default where king is
+        # Start drawing the initial board
+        self.board.draw_empty_board()
+        self.board.draw_pieces()
 
     def process_input(self):
         # for now only keyboard
@@ -62,6 +65,7 @@ class Game(object):
             self.update()
             self.render()
             self.clock.tick(self.fps)
+        pygame.quit()
 
 
 if __name__ == "__main__":

@@ -106,3 +106,11 @@ impelemnt the keyboard interaction and maybe highlight the square you are on.
 - Make the game ruubale in the current form
 - implement selected square
 - impelement legal moves
+
+### Day12: 24 Nov. 2021:
+**Progress:**
+Everything works as before, but his time in the framework of game development principles, might need to restructure the more that I go forward
+**TODO:**
+- draw a square for the picked square
+- keep going with the tutorial
+- write a seperate module for settings, they are kind of bothering, being referenced everywhere

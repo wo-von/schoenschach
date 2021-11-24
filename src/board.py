@@ -52,17 +52,31 @@ class Board(object):
         caption="Schönschach",
     ):
         self.screenSize = self.height, self.width = screenSize
-        self.logicalsize = self.logical_height, self.logical_width = logicalsize
+        self.logicalsize = self.rows, self.columns = logicalsize
         self.padding = padding
         self.logical_board = standardBoard if gameType == "standard" else None
         self.empty_board = empty_board
         self.caption = caption
-        self.board = pygame.image.load(self.empty_board)
+        self.emptyboard = pygame.image.load(
+            self.empty_board
+        )  # Picture of the empty board
+        self.board = self.get_board()  # collection of all the piece objects
         self.display = None
-        self.screen = None
 
-    def update(self):
-        return self.board
+    def draw_pieces(self):
+        """
+        draw the board
+        """
+        co = self.get_coordinates()
+        for i in range(self.rows):
+            for j in range(self.columns):
+                thisPiece = self.board[i][j].piece
+                if thisPiece == None:
+                    continue
+                thisPiece.image = pygame.transform.scale(thisPiece.image, (100, 100))
+
+                self.display.blit(thisPiece.image, co[i][j])
+        pygame.display.flip()  # This bothers me, how can I do it specific to this class?
 
     def get_coordinates(self):
 
@@ -70,13 +84,13 @@ class Board(object):
         for y in range(
             self.padding,
             self.height - self.padding,
-            int((self.height - 2 * self.padding) / self.logical_height),
+            int((self.height - 2 * self.padding) / self.rows),
         ):
             row = list()
             for x in range(
                 self.padding,
                 self.width - self.padding,
-                int((self.width - 2 * self.padding) / self.logical_width),
+                int((self.width - 2 * self.padding) / self.columns),
             ):
                 row.append((x, y))
             self.coordinates.append(row)
@@ -87,9 +101,9 @@ class Board(object):
         builds up a board with piece objects from pieces.py based on the logical_board
         """
         temp = list()  # empty list with correct rows and columns to be filled
-        for _ in range(self.logical_height):
+        for _ in range(self.columns):
             temptemp = list()
-            for _ in range(self.logical_width):
+            for _ in range(self.rows):
                 temptemp.append([])
             temp.append(temptemp)
 
@@ -145,50 +159,13 @@ class Board(object):
         """
         draws and empty board, over which the game is played
         """
+        # TODO: add icon for the display
         self.display = pygame.display.set_mode(self.screenSize)
         pygame.display.set_caption(self.caption)
-        self.board = pygame.transform.scale(
-            self.board, (self.height - 2 * self.padding, self.width - 2 * self.padding)
+        self.emptyboard = pygame.transform.scale(
+            self.emptyboard,
+            (self.height - 2 * self.padding, self.width - 2 * self.padding),
         )
-        self.display.fill((180, 180, 180))
-        self.display.blit(self.board, (self.padding, self.padding))
+        self.display.fill((180, 180, 180))  # GRAY
+        self.display.blit(self.emptyboard, (self.padding, self.padding))
         pygame.display.flip()
-
-
-def main():
-
-    BLACK = (0, 0, 0)
-    GRAY = (180, 180, 180)
-    board_logical_size = logical_height, logical_width = 8, 8
-    screenSize = height, width = 900, 900
-    padding = 50
-    # Start all modules
-    pygame.init()
-    # Call the screen Schönschach
-    pygame.display.set_caption("Schönschach")  # make icon also working
-    # Draw a 900 * 900 screen
-    screen = pygame.display.set_mode(screenSize)
-    board = pygame.image.load("../assets/boards/Chessboard480.svg.png")
-
-    # Load the board image and transform its scale with the corresponding padding
-    # now: 800 * 800 for simplicity
-    board = pygame.transform.scale(board, (height - 2 * padding, width - 2 * padding))
-    screen.fill(GRAY)
-    screen.blit(board, (padding, padding))
-    pygame.display.flip()
-    # Draw the pieces
-    logical_size = rows, columns = 8, 8
-    game = Board(logicalsize=logical_size)
-    toDraw = game.get_board()
-    co = game.get_coordinates()
-    for i in range(rows):
-        for j in range(columns):
-            thisPiece = toDraw[i][j].piece
-            if thisPiece == None:
-                continue
-            thisPiece.image = pygame.transform.scale(thisPiece.image, (100, 100))
-
-            screen.blit(thisPiece.image, co[i][j])
-
-    # ToDo: seperate this into another method
-    # pygame.display.flip()
