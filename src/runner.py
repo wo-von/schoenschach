@@ -8,7 +8,6 @@ import pieces
 
 os.environ["SDL_VIDEO_CENTERED"] = "1"
 
-
 class Game(object):
     """
     Main game class based on the game-dev run:
@@ -28,6 +27,7 @@ class Game(object):
         self.selected = False  # if a square has been picked by the user
         self.pos = [1, 5]  # where the selected square is, by default where king is
         # Start drawing the initial board
+        # Should be probably moved to render, so that the board is not drawn when the object is instantiated
         self.board.draw_empty_board()
         self.board.draw_pieces()
 

@@ -50,6 +50,7 @@ class Board(object):
         gameType="standard",
         empty_board="../assets/boards/Chessboard480.svg.png",
         caption="Schönschach",
+        pos=[1, 5]
     ):
         self.screenSize = self.height, self.width = screenSize
         self.logicalsize = self.rows, self.columns = logicalsize
@@ -60,8 +61,9 @@ class Board(object):
         self.emptyboard = pygame.image.load(
             self.empty_board
         )  # Picture of the empty board
-        self.board = self.get_board()  # collection of all the piece objects
-        self.display = None
+        self.pos = pos # Where the user is pointing
+        self.board = self.get_board()   # collection of all the piece objects
+                                        # This takes a very long time, TODO: optimize!
 
     def draw_pieces(self):
         """
@@ -79,7 +81,9 @@ class Board(object):
         pygame.display.flip()  # This bothers me, how can I do it specific to this class?
 
     def get_coordinates(self):
-
+        '''
+        Where each piece should be drawn, based on the screenSize (top left corner of each square)
+        '''
         self.coordinates = list()
         for y in range(
             self.padding,
@@ -95,7 +99,14 @@ class Board(object):
                 row.append((x, y))
             self.coordinates.append(row)
         return self.coordinates
-
+    
+    def get_dimensions(self):
+        '''
+        calculates and updates the dimensions needed
+        screenSize and padding are for now fixed
+        '''
+        self.cell_size = int((self.width - 2 * self.padding) / self.columns)
+        return self.cell_size
     def get_board(self):
         """
         builds up a board with piece objects from pieces.py based on the logical_board
@@ -168,4 +179,11 @@ class Board(object):
         )
         self.display.fill((180, 180, 180))  # GRAY
         self.display.blit(self.emptyboard, (self.padding, self.padding))
+        pygame.display.flip()
+    
+    def draw_square(self):
+        '''
+        draws a square for the user to pick pieces
+        '''
+        pygame.draw.rect(self.display, (255,255,0), (10, 10, 100, 100), 3)
         pygame.display.flip()
