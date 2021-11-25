@@ -8,6 +8,7 @@ import pieces
 
 os.environ["SDL_VIDEO_CENTERED"] = "1"
 
+
 class Game(object):
     """
     Main game class based on the game-dev run:
