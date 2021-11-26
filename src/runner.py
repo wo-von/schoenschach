@@ -1,10 +1,12 @@
+#!/usr/bin/python3
+
 ## Standard Library imports
 import os
 import pygame
 
 ## Local imports
 import board
-import pieces
+from board import Pos
 
 os.environ["SDL_VIDEO_CENTERED"] = "1"
 
@@ -22,15 +24,14 @@ class Game(object):
     def __init__(self, fps=60):
         pygame.init()
         self.clock = pygame.time.Clock()
-        self.board = board.Board()
         self.fps = fps
         self.running = True
         self.selected = False  # if a square has been picked by the user
-        self.pos = [1, 5]  # where the selected square is, by default where king is
+        self.pos = Pos(7, 4)  # where the selected square is, by default where king is
+        self.board = board.Board(pos=self.pos)
         # Start drawing the initial board
         # Should be probably moved to render, so that the board is not drawn when the object is instantiated
-        self.board.draw_empty_board()
-        self.board.draw_pieces()
+        self.board.board_setup()
 
     def process_input(self):
         # for now only keyboard
@@ -43,22 +44,23 @@ class Game(object):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.selected = False
-                elif event.key == pygame.K_SPACE or event.key == pygame.KEY_RETURN:
+                elif event.key == pygame.K_SPACE or event.key == pygame.K_RETURN:
                     self.selected = False if self.selected == True else True
                 elif event.key == pygame.K_RIGHT:
-                    self.pos[1] += 1 if self.pos[1] < 7 else 7
+                    self.pos.y += 1 if self.pos.x < 7 else 7
                 elif event.key == pygame.K_LEFT:
-                    self.pos[1] -= 1 if self.pos[1] != 0 else 0
+                    self.pos.y -= 1 if self.pos.y != 0 else 0
                 elif event.key == pygame.K_DOWN:
-                    self.pos[0] += 1 if self.pos[0] < 7 else 7
+                    self.pos.x += 1 if self.pos.x < 7 else 7
                 elif event.key == pygame.K_UP:
-                    self.pos[0] -= 1 if self.pos[0] != 0 else 0
+                    self.pos.x -= 1 if self.pos.x != 0 else 0
 
     def update(self):
-        pass
+        self.board.pos = self.pos
 
     def render(self):
-        pass
+        print(self.board.pos.x, self.board.pos.y, self.pos.x, self.pos.y)
+        self.board.board_setup()
 
     def run(self):
         while self.running == True:

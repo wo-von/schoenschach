@@ -114,3 +114,15 @@ Everything works as before, but his time in the framework of game development pr
 - draw a square for the picked square
 - keep going with the tutorial
 - write a seperate module for settings, they are kind of bothering, being referenced everywhere
+
+### Day13: 25 Nov. 2021:
+Writing this on 26th Nov, but the progress was done on the day it was supposed to
+**Progress:**
+simply draw a square where, and randomly so, not even pointing to a specific square
+
+### Day 14: 26. Nov. 2021:
+**Progress:**
+- used property for the first time in my life, was simple and  fun! (not sure why I was so confused about it when I first read about it, maybe the connection with wrapper, decorator, etc.)
+- now draw the square properly, and in the system of the game design pattern, but does not work properly, the screen keeps blinking which is probably because of the constant drawinf onto it, also the key press has no effect
+**TODO:**
+make the keys work
