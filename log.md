@@ -126,3 +126,7 @@ simply draw a square where, and randomly so, not even pointing to a specific squ
 - now draw the square properly, and in the system of the game design pattern, but does not work properly, the screen keeps blinking which is probably because of the constant drawinf onto it, also the key press has no effect
 **TODO:**
 make the keys work
+
+### Day 15: 27. Nov. 2021:
+**Progress:**
+Very lazy day, just debugged the code, saw that the keyboard input is actually working and tried to fix it. it is responsive, but with a funny bug, so not all the board is printed, i am not sure why. Also built a delay, it is not very demanding anymmore, but is not also the best solution, best maybe to render the parts that habe been changed
