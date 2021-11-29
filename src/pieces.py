@@ -95,8 +95,17 @@ class BRook(Rook):
 
 
 class Knight(Piece):
+    @property
     def allowed_moves(self):
-        raise NotImplementedError
+        temp = list()
+        # ToDo: maybe use permutations from itertools here
+        for i, j in zip([-2, -1, 1, 2], [1, 2, 2, 1]):
+            if self.x + i >= 0 and self.x + i <= 7:
+                if self.y + j <= 7:
+                    temp.append([self.x + i, self.y + j])
+                if self.y - j >= 0:
+                    temp.append([self.x + i, self.y - j])
+        return temp
 
 
 class WKnight(Knight):
