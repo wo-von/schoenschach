@@ -270,16 +270,11 @@ class BKing(King):
         )
 
 
-class Pawn(Piece):
-    def allowed_moves(self):
-        raise NotImplementedError
-
-
-class WPawn(Pawn):
+class WPawn(Piece):
     logical, color = "wp", "w"
 
     def __init__(self, x, y):
-        Pawn.__init__(
+        Piece.__init__(
             self,
             x=x,
             y=y,
@@ -287,15 +282,29 @@ class WPawn(Pawn):
             logical=WPawn.logical,
         )
 
+    @property
+    def allowed_moves(self):
+        if self.x == 6:
+            return [[self.x - i, self.y + j] for j in [-1, 0, 1] for i in [1, 2]]
+        else:
+            return [[self.x - 1, self.y + j] for j in [-1, 0, 1]]
 
-class BPawn(Pawn):
+
+class BPawn(Piece):
     logical, color = "bp", "b"
 
     def __init__(self, x, y):
-        Pawn.__init__(
+        Piece.__init__(
             self,
             x=x,
             y=y,
             image=symbolsPath[current_theme][self.logical],
             logical=BPawn.logical,
         )
+
+    @property
+    def allowed_moves(self):
+        if self.x == 1:
+            return [[self.x + i, self.y + j] for j in [-1, 0, 1] for i in [1, 2]]
+        else:
+            return [[self.x + 1, self.y + j] for j in [-1, 0, 1]]
