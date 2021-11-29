@@ -52,8 +52,20 @@ class Piece(object):
 
 
 class Rook(Piece):
+    @property
     def allowed_moves(self):
-        raise NotImplementedError
+        temp = list()
+        for i in range(1, 8):
+            if self.x + i <= 7:
+                temp.append([self.x + i, self.y])
+            if self.x - i >= 0:
+                temp.append([self.x - i, self.y])
+        for i in range(1, 8):
+            if self.y + i <= 7:
+                temp.append([self.x, self.y + i])
+            if self.y - i >= 0:
+                temp.append([self.x, self.y - i])
+        return temp
 
 
 class WRook(Rook):
