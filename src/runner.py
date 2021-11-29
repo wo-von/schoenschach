@@ -53,19 +53,19 @@ class Game(object):
                     self.change = True
                     break
                 elif event.key == pygame.K_RIGHT:
-                    self.pos.y += 1 if self.pos.x < 7 else 7
+                    self.pos.y += 1 if self.pos.y < 7 else 0
                     self.change = True
                     break
                 elif event.key == pygame.K_LEFT:
-                    self.pos.y -= 1 if self.pos.y != 0 else 0
+                    self.pos.y -= 1 if self.pos.y > 0 else 0
                     self.change = True
                     break
                 elif event.key == pygame.K_DOWN:
-                    self.pos.x += 1 if self.pos.x < 7 else 7
+                    self.pos.x += 1 if self.pos.x < 7 else 0
                     self.change = True
                     break
                 elif event.key == pygame.K_UP:
-                    self.pos.x -= 1 if self.pos.x != 0 else 0
+                    self.pos.x -= 1 if self.pos.x > 0 else 0
                     self.change = True
                     break
 
@@ -76,7 +76,6 @@ class Game(object):
         self.board.pos.y = self.pos.y
 
     def render(self):
-        print(self.board.pos.x, self.board.pos.y, self.pos.x, self.pos.y)
         self.board.board_setup()
 
     def run(self):
