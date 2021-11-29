@@ -181,8 +181,18 @@ class BBishop(Bishop):
 
 
 class Queen(Piece):
+    @property
     def allowed_moves(self):
-        raise NotImplementedError
+        temp = list()
+        for _ in range(1, 8):
+            for i in [-_, 0, _]:
+                for j in [-_, 0, _]:
+                    if i == 0 and j == 0:
+                        continue
+                    temp.append(
+                        [self.x + i, self.y + j]
+                    ) if self.x + i >= 0 and self.y + j >= 0 and self.x + i <= 7 and self.y + j <= 7 else None
+        return temp
 
 
 class WQueen(Queen):
