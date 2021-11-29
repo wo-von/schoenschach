@@ -135,8 +135,23 @@ class BKnight(Knight):
 
 
 class Bishop(Piece):
+    @property
     def allowed_moves(self):
-        raise NotImplementedError
+        temp = list()
+        for i in range(1, 8):
+            temp.append(
+                [self.x + i, self.y + i]
+            ) if self.x + i <= 7 and self.y + i <= 7 else None
+            temp.append(
+                [self.x - i, self.y - i]
+            ) if self.x - i >= 0 and self.y - i >= 0 else None
+            temp.append(
+                [self.x + i, self.y - i]
+            ) if self.x + i <= 7 and self.y - i >= 0 else None
+            temp.append(
+                [self.x - i, self.y + i]
+            ) if self.x - i >= 0 and self.y + i <= 7 else None
+        return temp
 
 
 class WBishop(Bishop):
