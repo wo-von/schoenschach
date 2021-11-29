@@ -222,9 +222,21 @@ class BQueen(Queen):
 
 
 class King(Piece):
+    @property
     def allowed_moves(self):
-        raise NotImplementedError
+        temp = list()
+        for i in range(-1, 2):
+            if self.x + i > 7 or self.x + i < 0:
+                continue
+            for j in range(-1, 2):
+                if self.y + j > 7 or self.y + j < 0:
+                    continue
+                if i == 0 and j == 0:
+                    continue
+                temp.append([self.x + i, self.y + j])
+        return temp
 
+    # Should probably be checked in board or Game
     def is_checked(self):
         raise NotImplementedError
 
