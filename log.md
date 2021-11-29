@@ -130,3 +130,13 @@ make the keys work
 ### Day 15: 27. Nov. 2021:
 **Progress:**
 Very lazy day, just debugged the code, saw that the keyboard input is actually working and tried to fix it. it is responsive, but with a funny bug, so not all the board is printed, i am not sure why. Also built a delay, it is not very demanding anymmore, but is not also the best solution, best maybe to render the parts that habe been changed
+### Day16: 29. Nov 2021:
+**Progress:**
+- Implemented the allowed moves of all the pieces. In current implementation, they simplay send back when they can go and then later in the Game or Board I am going to decide which ones are suitable for the current state of the game.
+- works on lenovo, but probablyy not on xps, since it was buggy the other day and not much has changes in the impelmentation of drawing the while board, should be checked there later too
+- Almost took the whole day for this, and it was kidn of a procrastination from other stuff, should work more focused and in limited time, the point is to work an hour only to be better focused.
+**TODO:**
+- Check the codde on xps to see why it was being drawn incorrectly there
+- draw only the parts that are changed
+- draw circles for possible moves
+- make a move visible finaly!
