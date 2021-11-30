@@ -7,7 +7,9 @@ import pygame
 import pieces
 
 gameTypes = {"standard"}
-
+GRAY = (180, 180, 180)
+YELLOW = (255, 255, 0)
+GREEN = (219,252, 3)
 standardBoard = [
     ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
     ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
@@ -17,6 +19,17 @@ standardBoard = [
     [0, 0, 0, 0, 0, 0, 0, 0],
     ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
     ["wr", "wn", "wb", "wq", "wk", "wb", "wn", "wr"],
+]
+
+testBoard = [
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, "wq", 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
 
@@ -54,7 +67,7 @@ class Board(object):
         screenSize=(900, 900),
         padding=50,
         logicalsize=(8, 8),
-        gameType="standard",
+        gameType=standardBoard,
         empty_board="../assets/boards/Chessboard480.svg.png",
         caption="Schönschach",
         pos: Pos = Pos(7, 4),
@@ -63,7 +76,7 @@ class Board(object):
         self.logicalsize = self.rows, self.columns = logicalsize
         self.padding = padding
         self.cell_size = self.get_dimensions()
-        self.logical_board = standardBoard if gameType == "standard" else None
+        self.logical_board = gameType 
         self.empty_board = empty_board
         self.caption = caption
         self.emptyboard = pygame.image.load(
@@ -93,18 +106,25 @@ class Board(object):
         """
         Where each piece should be drawn, based on the screenSize (top left corner of each square)
         """
-        self.coordinates = list()
-        for y in range(
+        # relevant coordinates of each square: 
+        # tl: top left
+        # ctr: center
+        self.coordinates = dict() 
+
+        for i, y in enumerate(range(
             self.padding,
             self.height - self.padding,
             int((self.height - 2 * self.padding) / self.rows),
-        ):
-            row = list()
-            for x in range(
+        )):
+            row = dict()
+             
+            for j, x in enumerate(range(
                 self.padding,
                 self.width - self.padding,
                 int((self.width - 2 * self.padding) / self.columns),
-            ):
+            )):
+                row[j] = dict()
+                row[j]["tl"]
                 row.append((x, y))
             self.coordinates.append(row)
         return self.coordinates
@@ -113,6 +133,7 @@ class Board(object):
         """
         calculates and updates the dimensions needed
         screenSize and padding are for now fixed
+        to be resized: square, circle, board, pieces pictures
         """
         self.cell_size = int((self.width - 2 * self.padding) / self.columns)
         return self.cell_size
@@ -187,7 +208,7 @@ class Board(object):
             self.emptyboard,
             (self.height - 2 * self.padding, self.width - 2 * self.padding),
         )
-        self.display.fill((180, 180, 180))  # GRAY
+        self.display.fill(GRAY)
         self.display.blit(self.emptyboard, (self.padding, self.padding))
         pygame.display.flip()
 
@@ -197,13 +218,17 @@ class Board(object):
         """
         pygame.draw.rect(
             self.display,
-            (255, 255, 0),
+            YELLOW,
             (
                 self.get_coordinates[self.pos.x][self.pos.y],
                 (self.cell_size, self.cell_size),
             ),
             3,
         )
+        pygame.display.flip()
+
+    def possible_moves(self):
+        pygame.draw.circle(self.display, GREEN, (50, 50), 10)
         pygame.display.flip()
 
     def board_setup(self):

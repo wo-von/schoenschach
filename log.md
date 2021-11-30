@@ -140,3 +140,9 @@ Very lazy day, just debugged the code, saw that the keyboard input is actually w
 - draw only the parts that are changed
 - draw circles for possible moves
 - make a move visible finaly!
+
+### Day17: 30 Nov. 2021:
+**Progress:**
+- started implementing the possible moves, was very distracted and almost did nothing
+**ToDo:**
+- keep implementing the possible moves method
