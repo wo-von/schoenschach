@@ -146,3 +146,11 @@ Very lazy day, just debugged the code, saw that the keyboard input is actually w
 - started implementing the possible moves, was very distracted and almost did nothing
 **ToDo:**
 - keep implementing the possible moves method
+
+### Day 18: 1 Dec. 2021:
+**Progress:**
+- draw the possible moves of a single piece on a test board, very raw
+**TODO:**
+- Draw the possible moves when the piece is picked
+- test different pieces
+- draw more than one piece and see their connection (hard!)

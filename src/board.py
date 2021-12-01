@@ -9,7 +9,7 @@ import pieces
 gameTypes = {"standard"}
 GRAY = (180, 180, 180)
 YELLOW = (255, 255, 0)
-GREEN = (219,252, 3)
+GREEN = (219, 252, 3)
 standardBoard = [
     ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
     ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
@@ -29,7 +29,7 @@ testBoard = [
     [0, 0, 0, 0, "wq", 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0, 0],
 ]
 
 
@@ -76,7 +76,7 @@ class Board(object):
         self.logicalsize = self.rows, self.columns = logicalsize
         self.padding = padding
         self.cell_size = self.get_dimensions()
-        self.logical_board = gameType 
+        self.logical_board = gameType
         self.empty_board = empty_board
         self.caption = caption
         self.emptyboard = pygame.image.load(
@@ -106,26 +106,24 @@ class Board(object):
         """
         Where each piece should be drawn, based on the screenSize (top left corner of each square)
         """
-        # relevant coordinates of each square: 
+        # relevant coordinates of each square:
         # tl: top left
         # ctr: center
-        self.coordinates = dict() 
+        self.coordinates = list()
 
-        for i, y in enumerate(range(
+        for i in range(
             self.padding,
             self.height - self.padding,
             int((self.height - 2 * self.padding) / self.rows),
-        )):
-            row = dict()
-             
-            for j, x in enumerate(range(
+        ):
+            row = list()
+
+            for j in range(
                 self.padding,
                 self.width - self.padding,
                 int((self.width - 2 * self.padding) / self.columns),
-            )):
-                row[j] = dict()
-                row[j]["tl"]
-                row.append((x, y))
+            ):
+                row.append((i, j))
             self.coordinates.append(row)
         return self.coordinates
 
@@ -142,12 +140,7 @@ class Board(object):
         """
         builds up a board with piece objects from pieces.py based on the logical_board
         """
-        temp = list()  # empty list with correct rows and columns to be filled
-        for _ in range(self.columns):
-            temptemp = list()
-            for _ in range(self.rows):
-                temptemp.append([])
-            temp.append(temptemp)
+        temp = [[[] for i in range(self.columns)] for j in range(self.rows)]
 
         for n, row in enumerate(self.logical_board):
             for m, column in enumerate(row):
@@ -227,8 +220,20 @@ class Board(object):
         )
         pygame.display.flip()
 
-    def possible_moves(self):
-        pygame.draw.circle(self.display, GREEN, (50, 50), 10)
+    def draw_possible_moves(self):
+        """
+        draw possible destinnations of the piece that has been picked
+        """
+        for x, y in self.board[4][4].piece.allowed_moves:
+            pygame.draw.circle(
+                self.display,
+                GREEN,
+                tuple(
+                    [_ + int(self.cell_size / 2) for _ in self.get_coordinates[x][y]]
+                ),
+                10,
+            )
+
         pygame.display.flip()
 
     def board_setup(self):
