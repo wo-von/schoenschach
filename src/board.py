@@ -6,10 +6,10 @@ import pygame
 # local libraries
 import pieces
 
-gameTypes = {"standard"}
 GRAY = (180, 180, 180)
 YELLOW = (255, 255, 0)
 GREEN = (219, 252, 3)
+
 standardBoard = [
     ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
     ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
@@ -106,10 +106,7 @@ class Board(object):
         """
         Where each piece should be drawn, based on the screenSize (top left corner of each square)
         """
-        # relevant coordinates of each square:
-        # tl: top left
-        # ctr: center
-        self.coordinates = list()
+        self._coordinates = list()
 
         for i in range(
             self.padding,
@@ -124,8 +121,8 @@ class Board(object):
                 int((self.width - 2 * self.padding) / self.columns),
             ):
                 row.append((i, j))
-            self.coordinates.append(row)
-        return self.coordinates
+            self._coordinates.append(row)
+        return self._coordinates
 
     def get_dimensions(self):
         """

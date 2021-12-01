@@ -130,6 +130,7 @@ make the keys work
 ### Day 15: 27. Nov. 2021:
 **Progress:**
 Very lazy day, just debugged the code, saw that the keyboard input is actually working and tried to fix it. it is responsive, but with a funny bug, so not all the board is printed, i am not sure why. Also built a delay, it is not very demanding anymmore, but is not also the best solution, best maybe to render the parts that habe been changed
+
 ### Day16: 29. Nov 2021:
 **Progress:**
 - Implemented the allowed moves of all the pieces. In current implementation, they simplay send back when they can go and then later in the Game or Board I am going to decide which ones are suitable for the current state of the game.
@@ -144,7 +145,7 @@ Very lazy day, just debugged the code, saw that the keyboard input is actually w
 ### Day17: 30 Nov. 2021:
 **Progress:**
 - started implementing the possible moves, was very distracted and almost did nothing
-**ToDo:**
+**TODO:**
 - keep implementing the possible moves method
 
 ### Day 18: 1 Dec. 2021:
@@ -154,3 +155,5 @@ Very lazy day, just debugged the code, saw that the keyboard input is actually w
 - Draw the possible moves when the piece is picked
 - test different pieces
 - draw more than one piece and see their connection (hard!)
+**Ideas:**
+-  
